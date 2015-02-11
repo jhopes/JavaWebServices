@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://soapservices.samit.com/" xmlns:tns="http://soapservices.samit.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="deptStructure" type="tns:deptStructure"/>
+
+  <xs:element name="empStructure" type="tns:empStructure"/>
+
+  <xs:element name="getAllEmploye" type="tns:getAllEmploye"/>
+
+  <xs:element name="getAllEmployeResponse" type="tns:getAllEmployeResponse"/>
+
+  <xs:complexType name="getAllEmploye">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getAllEmployeResponse">
+    <xs:sequence>
+      <xs:element name="EmpStructure" type="tns:empStructure" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="empStructure">
+    <xs:sequence>
+      <xs:element name="comm" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="deptno" type="tns:deptStructure" minOccurs="0"/>
+      <xs:element name="empno" type="xs:short" minOccurs="0"/>
+      <xs:element name="ename" type="xs:string" minOccurs="0"/>
+      <xs:element name="hiredate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="job" type="xs:string" minOccurs="0"/>
+      <xs:element name="mgr" type="xs:short" minOccurs="0"/>
+      <xs:element name="sal" type="xs:decimal" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="deptStructure">
+    <xs:sequence>
+      <xs:element name="deptno" type="xs:short" minOccurs="0"/>
+      <xs:element name="empList" type="tns:empStructure" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="loc" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
